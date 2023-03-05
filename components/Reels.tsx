@@ -37,7 +37,7 @@ function Reels() {
             draggable={false}
             height={1000}
             key={item?.id}
-            className='w-28 h-48 !sm:w-32 !sm:h-44 sm:first:ml-28 active:scale-90 transition transform active:opacity-20 cursor-pointer rounded-xl object-cover brightness-95 group-hover:brightness-110 shadow'
+            className='w-28 h-48 !sm:w-32 !sm:h-44 first:ml-28 active:scale-90 transition transform active:opacity-20 cursor-pointer rounded-xl object-cover brightness-95 group-hover:brightness-110 shadow'
           />
         ))}
       </div>

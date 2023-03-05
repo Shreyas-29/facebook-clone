@@ -1,16 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import { Feed, Header, LoginPage, Sidebar, Widgets } from '@/components';
-import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 import { getProviders, getSession, useSession } from "next-auth/react";
 
 
-interface Props {
-  providers: Record<string, unknown>;
-}
 
-
-export default function Home({ providers, }: Props) {
+export default function Home() {
 
   const { data: session } = useSession();
   const [data, setData] = useState([]);
@@ -27,24 +22,27 @@ export default function Home({ providers, }: Props) {
 
 
 
-  if (!session) return <LoginPage />;
-
-  return (
-    <>
-      <Head>
-        <title>Facebook - Home</title>
-        <meta name="description" content="Facebook clone by Shreyas" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/logo.png" />
-      </Head>
-      <Header />
-      <main className='!bg-[#f0f2f5] flex'>
-        <Sidebar />
-        <Feed />
-        <Widgets data={data} />
-      </main>
-    </>
-  )
+  if (!session) {
+    return <LoginPage />;
+  }
+  else {
+    return (
+      <>
+        <Head>
+          <title>Facebook</title>
+          <meta name="description" content="Facebook clone by Shreyas" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <link rel="icon" href="/logo.png" />
+        </Head>
+        <Header />
+        <main className='!bg-[#f0f2f5] flex'>
+          <Sidebar />
+          <Feed />
+          <Widgets data={data} />
+        </main>
+      </>
+    )
+  }
 }
 
 export async function getServerSideProps() {

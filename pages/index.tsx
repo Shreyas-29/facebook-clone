@@ -23,13 +23,11 @@ export default function Home() {
       <Login />
     )
   }
-  // if (status === 'loading') {
-  //   return (
-  //     setTimeout(() => {
-  //       <Loading />
-  //     }, 1000)
-  //   )
-  // }
+  if (status === 'loading') {
+    return (
+      <Loading />
+    )
+  }
 
   return (
     <>

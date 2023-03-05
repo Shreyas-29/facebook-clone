@@ -20,29 +20,29 @@ export default function Home() {
     fetchData();
   }, []);
 
-
+  console.log(session);
 
   if (!session) {
     return <LoginPage />;
   }
-  else {
-    return (
-      <>
-        <Head>
-          <title>Facebook</title>
-          <meta name="description" content="Facebook clone by Shreyas" />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <link rel="icon" href="/logo.png" />
-        </Head>
-        <Header />
-        <main className='!bg-[#f0f2f5] flex'>
-          <Sidebar />
-          <Feed />
-          <Widgets data={data} />
-        </main>
-      </>
-    )
-  }
+
+  // Render home page only if user is authenticated
+  return (
+    <>
+      <Head>
+        <title>Facebook</title>
+        <meta name="description" content="Facebook clone by Shreyas" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/logo.png" />
+      </Head>
+      <Header />
+      <main className="!bg-[#f0f2f5] flex">
+        <Sidebar />
+        <Feed />
+        <Widgets data={data} />
+      </main>
+    </>
+  );
 }
 
 export async function getServerSideProps() {

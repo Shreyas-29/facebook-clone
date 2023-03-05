@@ -3,11 +3,9 @@ import Head from 'next/head';
 import Button from './Button';
 import { FcGoogle } from 'react-icons/fc';
 
-interface Props {
-    providers: Record<string, unknown>;
-}
 
-function LoginPage({ providers }: Props) {
+
+function LoginPage() {
 
     return (
         <div className='bg-white'>
@@ -18,7 +16,7 @@ function LoginPage({ providers }: Props) {
             </Head>
             <div className='flex flex-col gap-y-4 items-center justify-center h-screen'>
                 <FcGoogle className='w-24 h-24 drop-shadow-lg' />
-                <Button title={'Sign in with Google'} providers={providers} />
+                <Button title={'Sign in with Google'} />
             </div>
         </div>
     )

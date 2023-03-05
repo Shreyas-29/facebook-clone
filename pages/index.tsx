@@ -7,10 +7,6 @@ import { getProviders, getSession, useSession } from "next-auth/react";
 
 interface Props {
   providers: Record<string, unknown>;
-  data: {
-    name: string;
-    city: string;
-  }[];
 }
 
 

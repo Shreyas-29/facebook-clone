@@ -11,7 +11,7 @@ export default function Home() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch('https://mocki.io/v1/fcbba5ff-4d94-40d1-9e08-80b86ae09616');
+      const res = await fetch('https://mocki.io/v1/906d39d8-2b35-4ace-90b1-8f70b426b0bb');
       const data = await res.json();
       setData(data);
     };

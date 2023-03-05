@@ -27,7 +27,7 @@ export default function Home({ providers, }: Props) {
 
 
 
-  // if (!session) return <LoginPage providers={providers} />;
+  if (!session) return <LoginPage providers={providers} />;
 
   return (
     <>

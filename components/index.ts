@@ -8,9 +8,10 @@ import Reels from './Reels'
 import Sidebar from './Sidebar'
 import Stories from './Stories'
 import Widgets from './Widgets'
-import LoginPage from './Login'
+import Login from './Login'
 import Button from "./Button";
 import Notifications from "./Notifications";
+import Loading from "./Loading";
 
 export {
     Buttons,
@@ -23,7 +24,8 @@ export {
     Sidebar,
     Stories,
     Widgets,
-    LoginPage,
+    Login,
     Button,
-    Notifications
+    Notifications,
+    Loading
 }

@@ -1,11 +1,13 @@
-import React from 'react';
-import Head from 'next/head';
-import Button from './Button';
-import { FcGoogle } from 'react-icons/fc';
-
-
+import { Button } from '@/components'
+import { getProviders } from 'next-auth/react';
+import Head from 'next/head'
+import React from 'react'
+import { FcGoogle } from 'react-icons/fc'
 
 function Login() {
+
+    // const providers = await getProviders();
+
 
     return (
         <div className='bg-white'>
@@ -16,10 +18,10 @@ function Login() {
             </Head>
             <div className='flex flex-col gap-y-4 items-center justify-center h-screen'>
                 <FcGoogle className='w-24 h-24 drop-shadow-lg' />
-                <Button title={'Sign in with Google'} />
+                {/* <Button title={'Sign in with Google'} providers={providers} /> */}sign in  with google
             </div>
         </div>
     )
 }
 
-export default Login;
+export default Login

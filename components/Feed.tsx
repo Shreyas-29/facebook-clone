@@ -4,6 +4,7 @@ import InputBox from './InputBox'
 import Posts from './Posts'
 import { collection, onSnapshot, orderBy, query } from 'firebase/firestore';
 import { db } from '@/firebase';
+import Loading from './Loading';
 
 
 function Feed() {

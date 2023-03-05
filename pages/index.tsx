@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
-import { Feed, Header, LoginPage, Sidebar, Widgets } from '@/components';
-import { getProviders, getSession, useSession } from "next-auth/react";
-
+import { Feed, Header, Loading, Login, Sidebar, Widgets } from '@/components';
+import { useSession } from "next-auth/react";
 
 
 export default function Home() {
 
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
   const [data, setData] = useState([]);
-
 
   useEffect(() => {
     const fetchData = async () => {
@@ -20,13 +18,19 @@ export default function Home() {
     fetchData();
   }, []);
 
-  console.log(session);
-
-  if (!session) {
-    return <LoginPage />;
+  if (status === 'unauthenticated') {
+    return (
+      <Login />
+    )
+  }
+  if (status === 'loading') {
+    return (
+      setTimeout(() => {
+        <Loading />
+      }, 1000)
+    )
   }
 
-  // Render home page only if user is authenticated
   return (
     <>
       <Head>
@@ -44,23 +48,3 @@ export default function Home() {
     </>
   );
 }
-
-export async function getServerSideProps() {
-
-  const res = await fetch('https://mocki.io/v1/fcbba5ff-4d94-40d1-9e08-80b86ae09616');
-  const data = await res.json();
-  console.log(data)
-
-  const session = await getSession();
-
-  const providers = await getProviders();
-
-  return {
-    props: {
-      session,
-      providers,
-      data
-    },
-  };
-};
-

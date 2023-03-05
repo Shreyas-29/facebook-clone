@@ -3,7 +3,6 @@ import { signIn } from 'next-auth/react';
 
 function Button({ title }: { title: string }) {
 
-
     return (
         <div>
             <button
